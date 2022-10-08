@@ -20,7 +20,15 @@ class ShortUrlCreateView(CreateAPIView):
         if not serializer.is_valid():
             return Response(serializer.errors, status=400)
 
-        return Response(generateShortUrlPath(10), 200)
+        # Generate the shortUrl
+        randomShortUrl = generateShortUrlPath(10)
+
+        # Create the ShortUrl object
+        newShortUrl = ShortUrl.objects.create(realUrl=request.data['realUrl'])
+        newShortUrl.shortUrl = randomShortUrl
+        newShortUrl.save()
+
+        return Response(newShortUrl.shortUrl, 200)
 
 # Generates a random string consisting of lower case letters
 # of length <length>
