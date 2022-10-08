@@ -7,9 +7,6 @@ from rest_framework.response import Response
 
 import random, string 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the api index.")
-
 class ShortUrlCreateView(CreateAPIView):
 
     def post(self, request, format=None):
