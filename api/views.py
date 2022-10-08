@@ -1,5 +1,3 @@
-from django.http import HttpResponse
-
 from .models import ShortUrl, SHORT_URL_DOMAIN
 from .serializers import ShortUrlSerializer
 from rest_framework.generics import CreateAPIView
@@ -35,7 +33,6 @@ class ShortUrlCreateView(CreateAPIView):
 # Credits: https://pynative.com/python-generate-random-string/
 def generateShortUrlPath(length):
 
-    # choose from all lowercase letter
     letters = string.ascii_lowercase
     result_str = ''.join(random.choice(letters) for i in range(length))
 
