@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 
-from .models import ShortUrl
+from .models import ShortUrl, SHORT_URL_DOMAIN
 from .serializers import ShortUrlSerializer
 from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
@@ -28,7 +28,10 @@ class ShortUrlCreateView(CreateAPIView):
         newShortUrl.shortUrl = randomShortUrl
         newShortUrl.save()
 
-        return Response(newShortUrl.shortUrl, 200)
+        # Create the full URL with the domain 'tier.app'
+        fullShortUrl = SHORT_URL_DOMAIN + newShortUrl.shortUrl
+
+        return Response(fullShortUrl, 200)
 
 # Generates a random string consisting of lower case letters
 # of length <length>
