@@ -27,6 +27,24 @@ class ShortUrlCreateView(CreateAPIView):
         fullShortUrl = SHORT_URL_DOMAIN + newShortUrl.shortUrl
 
         return Response({'shortUrl': fullShortUrl}, 200)
+    
+    def get(self, request, format=None):
+
+
+        # Get the shortUrl query argument, returning an error message if it's empty or not present
+        shortUrlArg = request.GET.get('shortUrl', '')
+        if shortUrlArg == '':
+            return Response({'errorMessage': 'Please provide a shortUrl query parameter'}, 400)
+
+        # Get the corresponding ShortUrl object from the database
+        correspondingShortUrlObject = ShortUrl.objects.filter(shortUrl=shortUrlArg)
+
+        # If a corresponding ShortUrl object exists, return its real url
+        # Otherwise, return an error message
+        if correspondingShortUrlObject.count == 1:
+            return Response(correspondingShortUrlObject.first().realUrl, 200)
+        else:
+            return Response({'errorMessage': f"The shortUrl parameter '{shortUrlArg}' is invalid. Please provide a valid shortUrl"}, 400)
 
 # Generates a random string consisting of lower case letters
 # of length <length>
