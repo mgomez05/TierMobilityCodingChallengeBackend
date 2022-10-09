@@ -26,7 +26,7 @@ class ShortUrlCreateView(CreateAPIView):
         # Create the full URL with the domain 'tier.app'
         fullShortUrl = SHORT_URL_DOMAIN + newShortUrl.shortUrl
 
-        return Response(fullShortUrl, 200)
+        return Response({'shortUrl': fullShortUrl}, 200)
 
 # Generates a random string consisting of lower case letters
 # of length <length>
