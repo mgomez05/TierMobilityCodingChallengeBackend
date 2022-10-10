@@ -79,8 +79,15 @@ WSGI_APPLICATION = 'tierbackendforwebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'tierdb',
+        'USER': 'tieruser',
+        'PASSWORD': 'tier',
+        'HOST': 'localhost',
+        'PORT': '',
+        'TEST': {
+            'NAME': 'tier_test',
+        },
     }
 }
 
