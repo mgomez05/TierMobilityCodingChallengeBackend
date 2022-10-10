@@ -4,6 +4,10 @@ Hello to those viewing this repository. This repository aims to help solve the [
 
 This code goes hand in hand with the frontend developed for completing the challenge. Please start running this backend first, and then run the [frontend](https://github.com/mgomez05/TierMobilityCodingChallenge) on the same machine to make sure the web app runs correctly.
 
+To start up the server, head to the section **Getting Started**
+
+To see the available endpoints provided by this server, head to the section **API**
+
 ## Getting Started 
 
 Below are the steps necessary to get the backend up and running on a new machine:
@@ -47,3 +51,25 @@ From the same directory as `manage.py`, run:
 3. `python manage.py runserver`
 
 This will start the server at localhost:8000 
+
+## API
+
+### Get a Shortened URL
+POST `api/shortURl`
+- Required Fields
+    - `realUrl`
+- Response: 
+    - Success
+        - HTTP Status : 200
+        - Payload (JSON)
+            - `shortUrl` corresponding to the `realUrl` provided in the request
+
+### Get the Original URL from a Shortened Url
+GET `api/shortURl`
+- Required Fields
+    - `shortUrl`
+- Response: 
+    - Success
+        - HTTP Status : 200
+        - Payload (JSON)
+            - `shortUrl` corresponding to the `realUrl` provided in the request
