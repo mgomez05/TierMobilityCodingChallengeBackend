@@ -42,7 +42,7 @@ class ShortUrlCreateView(CreateAPIView):
         # If a corresponding ShortUrl object exists, return its real url
         # Otherwise, return an error message
         if correspondingShortUrlObject.count() == 1:
-            return Response(correspondingShortUrlObject.first().realUrl, 200)
+            return Response({'realUrl': correspondingShortUrlObject.first().realUrl}, 200)
         else:
             return Response({'errorMessage': f"The shortUrl parameter '{shortUrlArg}' is invalid. Please provide a valid shortUrl"}, 400)
 
