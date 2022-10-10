@@ -1,6 +1,14 @@
-# Local Setup 
+# Coding Challenge Submission
 
-## Local Database 
+Hello to those viewing this repository. This repository aims to help solve the [Tier Mobility Coding Challenge](https://github.com/TierMobility/frontend-challenge/tree/feat/fullstack-challange#coding-challenge-)
+
+This code goes hand in hand with the frontend developed for completing the challenge. Please start running this backend first, and then run the frontend on the same machine to make sure the web app runs correctly.
+
+## Getting Started 
+
+Below are the steps necessary to get the backend up and running on a new machine:
+
+### Step 0: Clone the repository
 
 ### Step 1: Install Postgres
 
