@@ -72,4 +72,4 @@ GET `api/shortURl`
     - Success
         - HTTP Status : 200
         - Payload (JSON)
-            - `shortUrl` corresponding to the `realUrl` provided in the request
+            - `realUrl`, which is the original url used to generate `shortUrl` provided in the request
